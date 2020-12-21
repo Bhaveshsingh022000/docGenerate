@@ -16,23 +16,94 @@ exports.document = (req, res, next) => {
   });
 
   let pObj = docx.createP();
+  // pobj = docx.createP();
+  // pObj.addText(` Hello ${firstName} ${lastName}`, {
+  //   font_face: "Arial",
+  //   font_size: 40,
+  // });
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+
   pobj = docx.createP();
-  pObj.addText(` Hello ${firstName} ${lastName}`, {
-    font_face: "Arial",
-    font_size: 40,
+  pObj.options.align = "center";
+  pObj.addText(`Proposal:`, {
+    font_face: "Times New Roman",
+    font_size: 24,
+    bold: true,
   });
 
   pObj.addLineBreak();
   pObj.addLineBreak();
   pObj.addText(
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin libero nunc consequat interdum varius sit amet. Quis hendrerit dolor magna eget est lorem. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Et malesuada fames ac turpis egestas integer. Suspendisse ultrices gravida dictum fusce ut placerat orci. In arcu cursus euismod quis viverra nibh cras pulvinar. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Sit amet mattis vulputate enim nulla aliquet porttitor lacus. Ultrices sagittis orci a scelerisque purus semper eget. Dui accumsan sit amet nulla facilisi morbi tempus. A diam maecenas sed enim ut sem. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Leo urna molestie at elementum eu facilisis. Feugiat vivamus at augue eget arcu dictum varius duis."
+    "Spill Control and Countermeasure Plan (SPCC Plan) Site Evaluation & SPCC Drafting",
+    {
+      font_face: "Times New Roman",
+      font_size: 18,
+      bold: true,
+    }
   );
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
 
+  pObj.addText("Submitted to:",{
+    font_face: "Times New Roman",
+      font_size: 14,
+      italic: true,
+  });
   pObj.addLineBreak();
   pObj.addLineBreak();
-  pObj.addText(
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin libero nunc consequat interdum varius sit amet. Quis hendrerit dolor magna eget est lorem. At erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Et malesuada fames ac turpis egestas integer. Suspendisse ultrices gravida dictum fusce ut placerat orci. In arcu cursus euismod quis viverra nibh cras pulvinar. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Sit amet mattis vulputate enim nulla aliquet porttitor lacus. Ultrices sagittis orci a scelerisque purus semper eget. Dui accumsan sit amet nulla facilisi morbi tempus. A diam maecenas sed enim ut sem. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Leo urna molestie at elementum eu facilisis. Feugiat vivamus at augue eget arcu dictum varius duis."
-  );
+
+  const corpName= "Test Corp Name"
+  const addressLine1 = "Test Address Line 1";
+  const addressLine2 = "Test Address Line 2";
+
+  pObj.addText(`${corpName}`,{
+    font_face: "Times New Roman",
+      font_size: 18,
+      bold: true,
+  });
+  pObj.addLineBreak();
+
+  pObj.addText(`${addressLine1}`,{
+    font_face: "Times New Roman",
+      font_size: 14,
+      bold: true,
+  });
+  pObj.addLineBreak();
+
+  pObj.addText(`${addressLine2}`,{
+    font_face: "Times New Roman",
+      font_size: 14,
+      bold: true,
+  });
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+
+  const day = 21;
+  const month = 12;
+  const year = 2020;
+  pObj.addText(`${day} ${month} ${year}`,{
+    font_face: "Times New Roman",
+      font_size: 18,
+      bold: true,
+  });
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+  pObj.addLineBreak();
+
+  pObj.addImage(path.resolve(__dirname,"../public/images/logo.png"),{cx: 350, cy: 100});
+
+
 
   docx.putPageBreak();
 
